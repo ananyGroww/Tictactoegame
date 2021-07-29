@@ -9,6 +9,7 @@
       name="description"
       content="Web site created using create-react-app"
     />
+    <link rel="stylesheet" href="../src/index.css">
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <!--
       manifest.json provides metadata used when your web app is installed on a
@@ -24,20 +25,35 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    <title>About Players</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+    <div id="root">
+      <h1>Please type names of both players</h1>
+      <form class="nameForm0133root">
+        <ul>
+          <li class="user1Name0133nameForm">
+            <label for="user10133">Player 1</label>
+            <input type="text" id="user10133" placeholder="Type the name of first player">
+          </li>
+          <li>
+            <label for="user20133">Player 2</label>
+            <input type="text" id="user20133" placeholder="Type the name of second player">
+          </li>
+          <li>
+            <label for="startingPlayer0133">Who will start? (with X)</label>
+            <select name="startingPlayer0133" id="startingPlayer0133">
+              <option value="player1" id="player10133" selected>Player 1</option>
+              <option value="player2" id="player20133">Player 2</option>
+            </select>
+          </li>
+          <li>
+            <button type="reset">Clear current entries</button>
+            <button>Start game</button>
+          </li>
+        </ul>
+      </form>
+    </div>
   </body>
 </html>

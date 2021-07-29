@@ -1,0 +1,33 @@
+body {
+    background-color: whitesmoke;
+    box-shadow: inset 0 0 6px rgba(110, 110, 159, 0.639);
+    height: 100%;
+    margin: 0;
+}
+
+#root {
+    display: flex;
+    justify-content: space-around;
+}
+#root > div {
+    bbackground-color: rgba(167, 146, 146, 0.488);
+    align-self: center;
+}
+
+.ninePanel0133centralPlayArea {
+    display: flex;
+    justify-content: space-evenly;
+    max-width: 550px;
+    flex-wrap: wrap;
+}
+.centralPlayArea0133troot > h1 {
+    text-align: center;
+    font-family: Monaco;
+}
+.cell {
+    height: 150px;
+    width: 150px;
+    margin: 10px;
+    background-color: aqua;
+    box-shadow: 0 0 6px 1px rgba(110, 110, 159, 0.639);
+}
