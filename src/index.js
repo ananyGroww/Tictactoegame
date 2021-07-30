@@ -3,11 +3,20 @@
 // 2.  the data in state obj is one keystroke behind whats shown 
 //      on website. (Obs: printing in console again after 50 milliseconds, prints correct value)
 
+import './index.css';
+
 // Import the react and React ReactDOM lib
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import {
+  BrowserRouter,
+  Link,
+  Route,
+} from 'react-router-dom';
 import Cookies from 'universal-cookie';
+
+import Game from './gamescreen/game';
 
 // necessary to hot reload to work
 // if(module.hot){
@@ -49,30 +58,33 @@ class GetPlayerInfo extends React.Component {
         console.log(`values in state obj: `, this.state);
     }
     startGame = () => {
+        // https://stackoverflow.com/a/43684059
         const playerData = new Cookies();
         playerData.set('player1', this.state.player1, { path: '/' });
         playerData.set('player2', this.state.player2, { path: '/' });
         playerData.set('startPlayer', this.state.startPlayer, { path: '/' });
         // console.log(cookies.get('myCat'));
         console.log(playerData);
+        // let path = `/PageTwo`;
+        // let history = useHistory();
+        // history.push(path);
     }
     onEnterKey =  (event) => {
         
         event.preventDefault();
         console.log(`prevented enter key from refreshing the page.`)
-        let statePlayerProp = ``;
-        if(event.target.id === `user10133`){
-            statePlayerProp = `player1`;
-        }
-        else{
-            statePlayerProp = `player2`;
-        }
-        this.setState( { [statePlayerProp] : event.target.value } );
+        // let statePlayerProp = ``;
+        // if(event.target.id === `user10133`){
+        //     statePlayerProp = `player1`;
+        // }
+        // else{
+        //     statePlayerProp = `player2`;
+        // }
+        // this.setState( { [statePlayerProp] : event.target.value } );
         console.log(`values in state obj: `, this.state);
     }
-    // compulsary requirement
-    render() {
-        // console.log(`render func ran. ${this.state.player1} ${this.state.player2} ${this.state.startPlayer}`);
+    // https://www.cluemediator.com/navigate-from-one-page-to-another-page-in-reactjs
+    PageOne = () => {
         return (
             <div>
                 <h1>Please type names of both players</h1>
@@ -95,11 +107,62 @@ class GetPlayerInfo extends React.Component {
                         </li>
                         <li>
                             <button type="reset">Clear current entries</button>
-                            <button onClick={this.startGame}>Start game</button>
+                            <Link to="/game"><button onClick={this.startGame}>Start game</button></Link>
                         </li>
                     </ul>
                 </form>
             </div>
+        );
+    }
+    PageTwo = () => {
+        return (
+            <div>
+                <div className="leftPane0133root">
+                    <div id="player1Name0133leftPane"><h2>{this.state.player1}</h2></div>
+                    <div id="player1CounterPanel0133">Counter</div>
+                    <div>Wins <div id="player1Wins0133">3</div></div>
+                    <div>Losses <div id="player1Losses0133">0</div></div>
+                </div>
+                <div className="centralPlayArea0133troot">
+                    <h1>Tic-Tac-Toe</h1>
+                    <div className="ninePanel0133centralPlayArea">
+                        <div className="row00133ninePanel">
+                            <div className="cell">X</div>
+                            <div className="cell">0</div>
+                            <div className="cell">X</div>
+                        </div>
+                        <div className="row10133ninePanel">
+                            <div className="cell">XX</div>
+                            <div className="cell">0X</div>
+                            <div className="cell">XX</div>
+                        </div>
+                        <div className="row20133ninePanel0133">
+                            <div className="cell">X0</div>
+                            <div className="cell">00</div>
+                            <div className="cell">X0</div>
+                        </div>
+                    </div>
+                </div>
+                <div className="rightPane0133root">
+                    <div id="player2Name0133rightPane"><h2>{this.state.player2}</h2></div>
+                    <div id="player2CounterPanel0133">Counter</div>
+                    <div>Wins <div id="player2Wins0133">1</div></div>
+                    <div>Losses <div id="player2Losses0133">2</div></div>
+                </div>
+            </div>
+        );
+    }
+    // compulsary requirement
+    render() {
+        // console.log(`render func ran. ${this.state.player1} ${this.state.player2} ${this.state.startPlayer}`);
+        return (
+            <BrowserRouter>
+                <div>
+                    <Route path='/' exact component={this.PageOne}/>
+                    {/* <Route path='/game' component={this.PageTwo}/>  */}
+                    <Route path='/game' exact component={Game}/>
+                </div>
+            </BrowserRouter>
         );
     }
 }
