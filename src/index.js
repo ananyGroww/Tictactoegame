@@ -3,41 +3,43 @@
 // 2.  the data in state obj is one keystroke behind whats shown 
 //      on website. (Obs: printing in console again after 50 milliseconds, prints correct value)
 
-import './index.css';
-
 // Import the react and React ReactDOM lib
 import React from 'react';
 import ReactDOM from 'react-dom';
 
 import {
   BrowserRouter,
-  Link,
   Route,
 } from 'react-router-dom';
-import Cookies from 'universal-cookie';
 
 import Game from './gamescreen/game';
+import PlayerEntry from './playersinfo/player';
 
-// necessary to hot reload to work
-// if(module.hot){
-//     module.hot.accept();
-// }
-// Create a react component
-// const App = () => {
-//     return <div> Hi there!</div>
-// };
+/* necessary for hot reload to work
+if(module.hot){
+    module.hot.accept();
+}
+Create a react component
+const App = () => {
+    return <div> Hi there!</div>
+}; */
 class GetPlayerInfo extends React.Component {
-    constructor(props) {
+    /* constructor(props) {
         super(props);
         this.state = {
             player1: `playerA`,
             player2: `playerB`,
             startPlayer: `player1`,
+            wins1: 0,
+            loss1: 0,
+            wins2: 0,
+            loss2: 0,
         };
+        console.log(`inside getplayerinfo/index`,this.state);
         // legacy method of solving unknown `this`
         // this.onInputPlayer1 = this.onInputPlayer1.bind(this);
-    }
-    onPlayerNameChange  = (event) => {
+    } */
+    /* onPlayerNameChange  = (event) => {
         // console.log(event.target);
         let statePlayerProp = ``;
         if(event.target.id === `user10133`){
@@ -152,13 +154,14 @@ class GetPlayerInfo extends React.Component {
             </div>
         );
     }
-    // compulsary requirement
+    // compulsary */ requirement
     render() {
         // console.log(`render func ran. ${this.state.player1} ${this.state.player2} ${this.state.startPlayer}`);
         return (
             <BrowserRouter>
                 <div>
-                    <Route path='/' exact component={this.PageOne}/>
+                    {/* <Route path='/' exact component={this.PageOne}/> */}
+                    <Route path='/' exact component={PlayerEntry}/>
                     {/* <Route path='/game' component={this.PageTwo}/>  */}
                     <Route path='/game' exact component={Game}/>
                 </div>
