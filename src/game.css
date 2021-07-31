@@ -1,19 +1,23 @@
 body {
     background-color: whitesmoke;
-    box-shadow: inset 0 0 6px rgba(110, 110, 159, 0.639);
     height: 100%;
     margin: 0;
 }
 
-#root {
+.initPageTwo0133 {
     display: flex;
+    flex-direction: row;
     justify-content: space-around;
 }
-#root > div {
+.initPageTwo0133 > div {
     bbackground-color: rgba(167, 146, 146, 0.488);
     align-self: center;
 }
 
+#player1CounterPanel0133, #player2CounterPanel0133{
+    display: flex;
+    justify-content: space-between;
+}
 .ninePanel0133centralPlayArea {
     display: flex;
     justify-content: space-evenly;
@@ -28,6 +32,10 @@ body {
     height: 150px;
     width: 150px;
     margin: 10px;
-    background-color: aqua;
+    background-color: #00ffff;
     box-shadow: 0 0 6px 1px rgba(110, 110, 159, 0.639);
+    line-height: 150px;
+    text-align: center;
+    font-size: 100px;
+    color: #FF0000;
 }

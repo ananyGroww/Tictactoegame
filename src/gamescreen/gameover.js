@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 class GameFinished extends React.Component {
     constructor(props) {
@@ -17,8 +16,8 @@ class GameFinished extends React.Component {
         );
     }
 }
-ReactDOM.render(
-    <GameFinished/>,
-    document.querySelector('#root')
-);
+// ReactDOM.render(
+//     <GameFinished/>,
+//     document.querySelector('#root')
+// );
 export default GameFinished;
