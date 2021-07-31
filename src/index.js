@@ -21,10 +21,6 @@ class App extends React.Component {
         return (
             <BrowserRouter>
                 <Routes/>
-                {/* <Switch>
-                    <Route path='/' exact component={EnterPlayerDetails}/>
-                    <Route path='/game' exact component={Game}/>
-                </Switch> */}
             </BrowserRouter>
         );
     }

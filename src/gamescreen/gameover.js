@@ -4,7 +4,7 @@ class GameFinished extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            winner : `unassigned`,
+            winner : props.location.state.winner,
         }
     }
     render() {
